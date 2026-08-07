@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" role="img" aria-label="BM Digital Solutions 3D laptop logo">
+  <rect width="220" height="140" fill="none"/>
+  <path d="M44 38h120c8 0 14 6 14 14v44c0 8-6 14-14 14H44c-8 0-14-6-14-14V52c0-8 6-14 14-14z" fill="#2563EB"/>
+  <path d="M40 56h128c4 0 8 4 8 8v32c0 4-4 8-8 8H40c-4 0-8-4-8-8V64c0-4 4-8 8-8z" fill="#FFFFFF"/>
+  <path d="M46 62h116c2 0 4 2 4 4v22c0 2-2 4-4 4H46c-2 0-4-2-4-4V66c0-2 2-4 4-4z" fill="#F8FAFC"/>
+  <path d="M58 74h38" stroke="#111827" stroke-width="4" stroke-linecap="round"/>
+  <path d="M104 74h36" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="92" cy="74" r="18" fill="#2563EB"/>
+  <circle cx="92" cy="74" r="13" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+  <path d="M92 58v32" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M76 74h32" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M80 64c4-6 11-9 18-8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M80 84c4 6 11 9 18 8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M40 106h128" stroke="#111827" stroke-width="6" stroke-linecap="round"/>
+  <path d="M150 41l10-10 10 10" stroke="#F97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M152 41h14v14" stroke="#F97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 42l10 0" stroke="#F97316" stroke-width="3" stroke-linecap="round"/>
+  <path d="M28 50l16 0" stroke="#F97316" stroke-width="3" stroke-linecap="round"/>
+  <path d="M28 58l10 0" stroke="#F97316" stroke-width="3" stroke-linecap="round"/>
+  <path d="M166 40l8 8-8 8" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M176 40l8 8-8 8" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M128 44l8 8-8 8" stroke="#2563EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M138 44l8 8-8 8" stroke="#2563EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

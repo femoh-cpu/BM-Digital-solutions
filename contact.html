@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact BM Digital Solutions for website design, SEO, hosting, and digital support services." />
+    <title>Contact | BM Digital Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="loading-screen" aria-hidden="true">
+      <div class="spinner"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="container nav-bar">
+        <a class="brand" href="index.html" aria-label="BM Digital Solutions home">
+          <img class="brand-logo" src="images/logo.svg" alt="BM Digital Solutions laptop logo" />
+          <span class="brand-text">BM Digital Solutions</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">☀️</button>
+      </div>
+
+      <div class="container page-hero">
+        <p class="eyebrow">Contact Us</p>
+        <h1>Get in touch for a free quote or a quick consultation.</h1>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container contact-wrap">
+          <div class="contact-card">
+            <h3>Reach us</h3>
+            <p><strong>Email:</strong> brianmumo939@gmail.com</p>
+            <p><strong>Phone / WhatsApp:</strong> 0711608106</p>
+            <p><strong>Location:</strong> Nairobi, Kenya</p>
+            <p>We respond quickly to inquiries about website design, SEO, hosting, branding, and support.</p>
+            <div class="contact-map">
+              <iframe src="https://www.google.com/maps?q=Nairobi%2C%20Kenya&z=12&output=embed" title="Map to Nairobi, Kenya" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <form class="contact-form" id="lead-form">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Business
+              <input type="text" name="business" placeholder="What you do" required />
+            </label>
+            <label>
+              Message
+              <textarea name="message" placeholder="Tell us about your project"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <p class="form-message" id="form-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+        <p>© <span id="year"></span> BM Digital Solutions. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
+    <a class="whatsapp-float" href="https://wa.me/254711608106" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">💬</a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
