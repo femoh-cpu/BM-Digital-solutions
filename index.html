@@ -14,6 +14,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://femoh-cpu.github.io/BM-Digital-solutions/" />
+    <meta name="author" content="BM Digital Solutions" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "BM Digital Solutions",
+        "url": "https://femoh-cpu.github.io/BM-Digital-solutions/",
+        "logo": "https://femoh-cpu.github.io/BM-Digital-solutions/images/logo.svg",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+254711608106",
+          "contactType": "customer service"
+        }]
+      }
+    </script>
+    <!-- Google Analytics / GA4: replace MEASUREMENT_ID with your ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+      gtag('config', 'MEASUREMENT_ID');
+    </script>
+    -->
   </head>
   <body>
     <div class="loading-screen" aria-hidden="true">
@@ -215,7 +240,7 @@
             <p>Reach out for a free quote, a quick consultation, or a website upgrade.</p>
           </div>
 
-          <form class="contact-form" id="lead-form">
+          <form class="contact-form" id="lead-form" action="https://formspree.io/f/yourformid" method="POST" data-remote="true">
             <div class="contact-detail-box">
               <p><strong>Email:</strong> brianmumo939@gmail.com</p>
               <p><strong>Phone / WhatsApp:</strong> 0711608106</p>
@@ -234,6 +259,9 @@
             </label>
             <button class="btn btn-primary" type="submit">Request Free Quote</button>
             <p class="form-message" id="form-message" aria-live="polite"></p>
+            <noscript>
+              <p>Please enable JavaScript or contact us directly at <a href="mailto:brianmumo939@gmail.com">brianmumo939@gmail.com</a>.</p>
+            </noscript>
           </form>
         </div>
       </section>
