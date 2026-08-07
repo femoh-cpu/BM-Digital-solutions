@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://femoh-cpu.github.io/BM-Digital-solutions/sitemap.xml
