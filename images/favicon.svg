@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="BM Digital Solutions favicon">
-  <rect width="64" height="64" rx="16" fill="#2563EB"/>
-  <path d="M18 18h28v10H28v8h16v10H18z" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="BM Digital Solutions favicon">
+  <rect width="64" height="64" rx="12" fill="#111827" />
+  <g transform="translate(8 8)">
+    <rect x="4" y="10" width="44" height="28" rx="3" fill="#2563EB" />
+    <circle cx="26" cy="24" r="8" fill="#60A5FA" />
+    <path d="M10 18 L18 12 L26 18" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="6" y="44" fill="#fff" font-family="Poppins, sans-serif" font-weight="700" font-size="12">BM</text>
+  </g>
 </svg>
