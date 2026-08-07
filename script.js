@@ -51,12 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const business = data.get("business")?.toString().trim() || "";
 
     if (!name || !email || !business) {
-      if (msg) msg.textContent = "Please complete all required fields so we can prepare your quote.";
+      if (msg) {
+        msg.textContent = "Please complete all required fields so we can prepare your quote.";
+        msg.classList.remove('success');
+        msg.classList.add('error');
+      }
       return;
     }
 
     if (!email.includes("@")) {
-      if (msg) msg.textContent = "Please enter a valid email address.";
+      if (msg) {
+        msg.textContent = "Please enter a valid email address.";
+        msg.classList.remove('success');
+        msg.classList.add('error');
+      }
       return;
     }
 
@@ -72,17 +80,33 @@ document.addEventListener("DOMContentLoaded", () => {
           headers: { Accept: "application/json" }
         });
         if (res.ok) {
-          if (msg) msg.textContent = `Thanks, ${name}! We’ll reach out shortly with your quote for ${business}.`;
+          if (msg) {
+            msg.textContent = `Thanks, ${name}! We’ll reach out shortly with your quote for ${business}.`;
+            msg.classList.remove('error');
+            msg.classList.add('success');
+          }
           f.reset();
         } else {
           const j = await res.json().catch(() => null);
-          if (msg) msg.textContent = (j && j.error) ? j.error : 'Submission failed. Please email us at brianmumo939@gmail.com';
+          if (msg) {
+            msg.textContent = (j && j.error) ? j.error : 'Submission failed. Please email us at brianmumo939@gmail.com';
+            msg.classList.remove('success');
+            msg.classList.add('error');
+          }
         }
       } catch (err) {
-        if (msg) msg.textContent = 'Network error. Please try again or email brianmumo939@gmail.com';
+        if (msg) {
+          msg.textContent = 'Network error. Please try again or email brianmumo939@gmail.com';
+          msg.classList.remove('success');
+          msg.classList.add('error');
+        }
       }
     } else {
-      if (msg) msg.textContent = `Thanks, ${name}! We’ll reach out shortly with your quote for ${business}.`;
+      if (msg) {
+        msg.textContent = `Thanks, ${name}! We’ll reach out shortly with your quote for ${business}.`;
+        msg.classList.remove('error');
+        msg.classList.add('success');
+      }
       f.reset();
     }
   }
