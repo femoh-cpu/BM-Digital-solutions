@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#111827"/>
+  <rect x="70" y="90" width="460" height="300" rx="28" fill="#2563EB"/>
+  <rect x="90" y="110" width="420" height="260" rx="16" fill="#FFFFFF"/>
+  <circle cx="300" cy="240" r="70" fill="#2563EB"/>
+  <circle cx="300" cy="240" r="50" fill="none" stroke="#FFFFFF" stroke-width="6"/>
+  <text x="360" y="180" font-family="Poppins, Arial, sans-serif" font-size="48" fill="#FFFFFF" font-weight="700">BM Digital Solutions</text>
+  <text x="360" y="240" font-family="Poppins, Arial, sans-serif" font-size="28" fill="#93C5FD">Affordable websites & digital support</text>
+  <rect x="70" y="430" width="1060" height="120" rx="12" fill="#0f172a" opacity="0.35"/>
+</svg>
