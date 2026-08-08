@@ -416,6 +416,32 @@ textarea {
   color: #16a34a;
 }
 
+.faq-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.faq-item p {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+}
+
 .site-footer {
   padding: 1.2rem 0 2rem;
 }
