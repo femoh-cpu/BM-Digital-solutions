@@ -1,0 +1,26 @@
+name: Restore website to original state
+
+on:
+  push:
+    paths:
+      - '.github/workflows/restore-original.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore files from before our recent changes
+        run: |
+          git checkout e4d83b9b51a4fdeeb69dd1e6cba9188b6a7cb972 -- index.html portfolio.html images/logo.svg styles.css
+          rm -f .github/workflows/restore-styles.yml .github/workflows/restore-original.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html portfolio.html images/logo.svg styles.css .github/workflows/restore-styles.yml .github/workflows/restore-original.yml
+          git commit -m "Restore website to original state before recent changes" || exit 0
+          git push
