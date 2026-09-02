@@ -4,6 +4,62 @@ document.addEventListener("DOMContentLoaded", () => {
     yearEl.textContent = new Date().getFullYear();
   }
 
+  const brandText = document.querySelector(".brand-text");
+  if (brandText && !brandText.querySelector(".brand-mark")) {
+    brandText.innerHTML = '<span class="brand-mark">BM</span><span class="brand-name">Digital Solutions</span>';
+  }
+
+  const navBar = document.querySelector(".nav-bar");
+  const navLinks = document.querySelector(".nav-links");
+  const themeToggle = document.querySelector(".theme-toggle");
+
+  if (navBar && navLinks) {
+    const actions = document.createElement("div");
+    actions.className = "nav-controls";
+
+    const quoteLink = document.createElement("a");
+    quoteLink.className = "header-cta";
+    quoteLink.href = "contact.html";
+    quoteLink.textContent = "Get a Free Quote";
+
+    const mobileToggle = document.createElement("button");
+    mobileToggle.type = "button";
+    mobileToggle.className = "mobile-nav-toggle";
+    mobileToggle.setAttribute("aria-label", "Toggle navigation");
+    mobileToggle.setAttribute("aria-expanded", "false");
+    mobileToggle.innerHTML = '<span></span>';
+
+    if (themeToggle) {
+      actions.appendChild(themeToggle);
+    }
+
+    actions.appendChild(quoteLink);
+    actions.appendChild(mobileToggle);
+
+    navBar.appendChild(actions);
+
+    mobileToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 980) {
+          navLinks.classList.remove("open");
+          mobileToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 980) {
+        navLinks.classList.remove("open");
+        mobileToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
   const loadingScreen = document.querySelector(".loading-screen");
   if (loadingScreen) {
     window.setTimeout(() => loadingScreen.classList.add("hidden"), 900);
@@ -23,18 +79,17 @@ document.addEventListener("DOMContentLoaded", () => {
   toggleStickyHeader();
   window.addEventListener("scroll", toggleStickyHeader, { passive: true });
 
-  const toggleButton = document.querySelector(".theme-toggle");
-  if (toggleButton) {
+  if (themeToggle) {
     const savedTheme = localStorage.getItem("bm-theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const isDark = savedTheme ? savedTheme === "dark" : prefersDark;
     document.body.classList.toggle("dark", isDark);
-    toggleButton.textContent = isDark ? "🌙" : "☀️";
+    themeToggle.textContent = isDark ? "🌙" : "☀️";
 
-    toggleButton.addEventListener("click", () => {
+    themeToggle.addEventListener("click", () => {
       const isNowDark = document.body.classList.toggle("dark");
       localStorage.setItem("bm-theme", isNowDark ? "dark" : "light");
-      toggleButton.textContent = isNowDark ? "🌙" : "☀️";
+      themeToggle.textContent = isNowDark ? "🌙" : "☀️";
     });
   }
 
