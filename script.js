@@ -14,51 +14,79 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.querySelector(".theme-toggle");
 
   if (navBar && navLinks) {
-    const actions = document.createElement("div");
-    actions.className = "nav-controls";
+    if (!navBar.querySelector(".nav-controls")) {
+      const actions = document.createElement("div");
+      actions.className = "nav-controls";
 
-    const quoteLink = document.createElement("a");
-    quoteLink.className = "header-cta";
-    quoteLink.href = "contact.html";
-    quoteLink.textContent = "Get a Free Quote";
+      const quoteLink = document.createElement("a");
+      quoteLink.className = "header-cta";
+      quoteLink.href = "contact.html";
+      quoteLink.textContent = "Get a Free Quote";
 
-    const mobileToggle = document.createElement("button");
-    mobileToggle.type = "button";
-    mobileToggle.className = "mobile-nav-toggle";
-    mobileToggle.setAttribute("aria-label", "Toggle navigation");
-    mobileToggle.setAttribute("aria-expanded", "false");
-    mobileToggle.innerHTML = '<span></span>';
+      const mobileToggle = document.createElement("button");
+      mobileToggle.type = "button";
+      mobileToggle.className = "mobile-nav-toggle";
+      mobileToggle.setAttribute("aria-label", "Toggle navigation");
+      mobileToggle.setAttribute("aria-expanded", "false");
+      mobileToggle.innerHTML = '<span></span>';
 
-    if (themeToggle) {
-      actions.appendChild(themeToggle);
-    }
+      if (themeToggle) {
+        actions.appendChild(themeToggle);
+      }
 
-    actions.appendChild(quoteLink);
-    actions.appendChild(mobileToggle);
+      actions.appendChild(quoteLink);
+      actions.appendChild(mobileToggle);
 
-    navBar.appendChild(actions);
+      navBar.appendChild(actions);
 
-    mobileToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      mobileToggle.setAttribute("aria-expanded", String(isOpen));
-    });
+      mobileToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        mobileToggle.setAttribute("aria-expanded", String(isOpen));
+      });
 
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        if (window.innerWidth <= 980) {
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 980) {
+            navLinks.classList.remove("open");
+            mobileToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 980) {
           navLinks.classList.remove("open");
           mobileToggle.setAttribute("aria-expanded", "false");
         }
       });
-    });
+    }
 
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 980) {
-        navLinks.classList.remove("open");
-        mobileToggle.setAttribute("aria-expanded", "false");
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    navLinks.querySelectorAll('a').forEach((link) => {
+      const href = link.getAttribute('href');
+      const isMatch = href && (href === currentPage || (currentPage === '' && href === 'index.html'));
+      if (isMatch) {
+        link.classList.add('active');
       }
     });
   }
+
+  const revealTargets = document.querySelectorAll('.section, .info-card, .pricing-card, .testimonial-card, .content-card, .faq-item, .contact-card, .contact-form, .showcase-banner, .demo-tile, .gallery-card, .timeline-item');
+  revealTargets.forEach((el) => {
+    el.classList.add('reveal-hidden');
+  });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('reveal-hidden');
+        entry.target.classList.add('reveal');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  revealTargets.forEach((el) => revealObserver.observe(el));
 
   const loadingScreen = document.querySelector(".loading-screen");
   if (loadingScreen) {
