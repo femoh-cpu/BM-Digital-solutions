@@ -1,9 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" role="img" aria-label="BM Digital Solutions laptop visual">
-<style>
-.laptop{display:none}
-@media (min-width:180px){.laptop{display:inline}}
-</style>
-<g class="laptop">
 <defs>
 <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset=".55" stop-color="#173b75"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
 <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fafc"/><stop offset=".5" stop-color="#cbd5e1"/><stop offset="1" stop-color="#64748b"/></linearGradient>
@@ -29,6 +24,5 @@
 <path d="M120 439h520l-23 44H143z" fill="#94a3b8" opacity=".35"/>
 <rect x="310" y="452" width="140" height="25" rx="12.5" fill="#64748b" opacity=".55"/>
 <path d="M54 510h652c-11 34-45 48-84 48H138c-39 0-73-14-84-48z" fill="#475569"/>
-</g>
 </g>
 </svg>
