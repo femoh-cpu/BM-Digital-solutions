@@ -20,6 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
     quoteLink.href = "contact.html";
     quoteLink.textContent = "Get a Free Quote";
 
+    const appLink = document.createElement("a");
+    appLink.className = "header-cta app-download-cta";
+    appLink.href = "https://github.com/femoh-cpu/BM-Digital-solutions/releases/download/v1.0.0/application-6575e8eb-55db-4ecf-9e5a-1608bd28be9e.apk";
+    appLink.target = "_blank";
+    appLink.rel = "noopener";
+    appLink.textContent = "📱 Download App";
+    appLink.setAttribute("aria-label", "Download BM Business Assistant app");
+
     const mobileToggle = document.createElement("button");
     mobileToggle.type = "button";
     mobileToggle.className = "mobile-nav-toggle";
@@ -29,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (themeToggle) actions.appendChild(themeToggle);
     actions.appendChild(quoteLink);
+    actions.appendChild(appLink);
     actions.appendChild(mobileToggle);
     navBar.appendChild(actions);
 
@@ -107,7 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Welcome popup: use a new version key so visitors who tested an older popup still see this one.
   const isHomePage = window.location.pathname.endsWith("/") || window.location.pathname.endsWith("index.html");
   const welcomeKey = "bm-welcome-v2-seen";
   if (isHomePage && !localStorage.getItem(welcomeKey)) {
