@@ -121,6 +121,66 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Welcome popup — shown once to each new visitor on the home page.
+  if (window.location.pathname.endsWith("/") || window.location.pathname.endsWith("index.html")) {
+    const welcomeSeen = localStorage.getItem("bm-welcome-seen");
+
+    if (!welcomeSeen) {
+      const style = document.createElement("style");
+      style.textContent = `
+        .bm-welcome-overlay{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:1rem;background:rgba(2,6,23,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:bmWelcomeFade .25s ease}
+        .bm-welcome-modal{position:relative;width:min(520px,100%);padding:2rem;border:1px solid rgba(125,211,252,.28);border-radius:1.5rem;background:linear-gradient(145deg,#0f172a,#172554);color:#fff;box-shadow:0 30px 90px rgba(2,6,23,.5);text-align:center;animation:bmWelcomeUp .3s ease}
+        .bm-welcome-icon{width:58px;height:58px;margin:0 auto 1rem;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#38bdf8,#2563eb);font-size:1.7rem;box-shadow:0 12px 28px rgba(37,99,235,.35)}
+        .bm-welcome-modal h2{margin:0 0 .65rem;font-size:clamp(1.55rem,5vw,2rem);line-height:1.2}
+        .bm-welcome-modal p{margin:0 auto 1.4rem;max-width:430px;color:rgba(255,255,255,.82);line-height:1.7;font-size:.95rem}
+        .bm-welcome-actions{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap}
+        .bm-welcome-actions a,.bm-welcome-close{font:inherit;cursor:pointer}
+        .bm-welcome-actions a{display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1.1rem;border-radius:999px;font-weight:700;text-decoration:none}
+        .bm-welcome-primary{background:#f97316;color:#fff;box-shadow:0 10px 24px rgba(249,115,22,.24)}
+        .bm-welcome-secondary{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)}
+        .bm-welcome-close{position:absolute;top:.75rem;right:.8rem;width:36px;height:36px;border:0;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:1.25rem;line-height:1}
+        .bm-welcome-close:hover{background:rgba(255,255,255,.16)}
+        @keyframes bmWelcomeFade{from{opacity:0}to{opacity:1}}
+        @keyframes bmWelcomeUp{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+        @media(max-width:560px){.bm-welcome-modal{padding:1.7rem 1.15rem 1.45rem;border-radius:1.25rem}.bm-welcome-actions{flex-direction:column}.bm-welcome-actions a{width:100%}}
+      `;
+      document.head.appendChild(style);
+
+      const overlay = document.createElement("div");
+      overlay.className = "bm-welcome-overlay";
+      overlay.setAttribute("role", "dialog");
+      overlay.setAttribute("aria-modal", "true");
+      overlay.setAttribute("aria-labelledby", "bm-welcome-title");
+      overlay.innerHTML = `
+        <div class="bm-welcome-modal">
+          <button class="bm-welcome-close" type="button" aria-label="Close welcome message">×</button>
+          <div class="bm-welcome-icon">👋</div>
+          <h2 id="bm-welcome-title">Welcome to BM Digital Solutions</h2>
+          <p><strong>Your ideas. Our digital expertise.</strong><br>We help businesses build a strong and professional online presence through modern websites, branding, SEO, and practical digital support.</p>
+          <div class="bm-welcome-actions">
+            <a class="bm-welcome-primary" href="contact.html">Start Your Project</a>
+            <a class="bm-welcome-secondary" href="services.html">Explore Services</a>
+          </div>
+        </div>
+      `;
+
+      const closeWelcome = () => {
+        localStorage.setItem("bm-welcome-seen", "true");
+        overlay.remove();
+      };
+
+      overlay.querySelector(".bm-welcome-close").addEventListener("click", closeWelcome);
+      overlay.addEventListener("click", (event) => {
+        if (event.target === overlay) closeWelcome();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && document.body.contains(overlay)) closeWelcome();
+      });
+
+      document.body.appendChild(overlay);
+    }
+  }
+
   const form = document.getElementById("lead-form");
   const message = document.getElementById("form-message");
 
@@ -151,7 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // If form is configured to post to a remote endpoint (e.g., Formspree)
     const action = f.getAttribute("action");
     const isRemote = f.dataset.remote === "true" && action && action.length > 0;
 
