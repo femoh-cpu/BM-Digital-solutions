@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  const APK_URL = "https://github.com/femoh-cpu/BM-Digital-solutions/releases/download/v1.0.0/application-6575e8eb-55db-4ecf-9e5a-1608bd28be9e.apk";
+
   const brandText = document.querySelector(".brand-text");
   if (brandText && !brandText.querySelector(".brand-mark")) {
     brandText.innerHTML = '<span class="brand-mark">BM</span><span class="brand-name">Digital Solutions</span>';
@@ -22,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const appLink = document.createElement("a");
     appLink.className = "header-cta app-download-cta";
-    appLink.href = "https://github.com/femoh-cpu/BM-Digital-solutions/releases/download/v1.0.0/application-6575e8eb-55db-4ecf-9e5a-1608bd28be9e.apk";
+    appLink.href = APK_URL;
     appLink.target = "_blank";
     appLink.rel = "noopener";
     appLink.textContent = "📱 Download App";
@@ -61,6 +63,30 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileToggle.setAttribute("aria-expanded", "false");
       }
     });
+  }
+
+  // Put a prominent app download button directly in the hero so it is always visible on phones.
+  const heroActions = document.querySelector(".hero .hero-actions");
+  if (heroActions && !heroActions.querySelector(".hero-app-download")) {
+    const heroApp = document.createElement("a");
+    heroApp.className = "btn btn-primary hero-app-download";
+    heroApp.href = APK_URL;
+    heroApp.target = "_blank";
+    heroApp.rel = "noopener";
+    heroApp.textContent = "📱 Download App";
+    heroApp.setAttribute("aria-label", "Download BM Business Assistant app");
+    heroActions.insertBefore(heroApp, heroActions.firstChild);
+
+    const heroStyle = document.createElement("style");
+    heroStyle.textContent = `
+      .hero-app-download{display:inline-flex;align-items:center;justify-content:center;min-width:170px;}
+      @media(max-width:980px){
+        .hero-app-download{width:100%;max-width:360px;min-height:50px;font-size:1rem;}
+        .hero .hero-actions{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;}
+        .hero .hero-actions .btn{width:100%;max-width:360px;text-align:center;}
+      }
+    `;
+    document.head.appendChild(heroStyle);
   }
 
   if (navLinks) {
