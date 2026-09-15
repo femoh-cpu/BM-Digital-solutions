@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  const APK_URL = "https://github.com/femoh-cpu/BM-Digital-solutions/releases/download/v1.0.0/application-6575e8eb-55db-4ecf-9e5a-1608bd28be9e.apk";
+  const APK_URL = "https://github.com/femoh-cpu/BM-Digital-solutions/releases/download/v1.0.1/application-8405a741-8023-494b-ab74-aae2a22386e5.apk";
 
   const brandText = document.querySelector(".brand-text");
   if (brandText && !brandText.querySelector(".brand-mark")) {
